@@ -3,6 +3,7 @@ from bs4 import BeautifulSoup
 from linebot import LineBotApi
 from linebot.models import TextSendMessage
 import os
+import git
 
 LINE_TOKEN = os.environ.get("LA_LINETOKEN")
 CNAME = os.environ.get("LA_CNAME")
@@ -41,5 +42,7 @@ for a in commentelems:
 if LASTID_NEW != None and type(LASTID_NEW) == int:
     with open("lastid.txt", "w") as f:
         f.write(str(LASTID_NEW))
-
-print("Success Process")
+    print("Success Process")
+else:
+    print("Success Process")
+    NoNewComments()
