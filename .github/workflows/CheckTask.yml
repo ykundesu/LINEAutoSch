@@ -32,7 +32,8 @@ jobs:
           python3 main.py
       - name: Commit
         run: |
-          git config user.name  "コミットくん"
+          git config user.name  "コミットくん" 
+          git config user.email "committer@committer.committer"
           git add .
           git commit -m "update"
           git push
