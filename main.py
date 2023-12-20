@@ -3,7 +3,6 @@ from bs4 import BeautifulSoup
 from linebot import LineBotApi
 from linebot.models import TextSendMessage
 import os
-import git
 
 LINE_TOKEN = os.environ.get("LA_LINETOKEN")
 CNAME = os.environ.get("LA_CNAME")
