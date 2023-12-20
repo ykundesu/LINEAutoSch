@@ -1,0 +1,38 @@
+name: LINEAutoSchCheckTask
+
+on:
+  schedule:
+    - cron: '*/10 22 *  *  *'
+    - cron: '0-30/10 23 *  *  *'
+    - cron: '0-30/10 2 *  *  *'
+    - cron: '0-30/10 3 *  *  *'
+  workflow_dispatch:
+
+jobs:
+  build:
+    env:
+      LA_LINETOKEN: ${{ secrets.LINETOKEN }}
+      LA_CNAME: ${{ secrets.CNAME }}
+      LA_PAGEURL: ${{ secrets.PAGEURL }}
+      LA_UPPERCOMMENT: ${{ secrets.UPPERCOMMENT }}
+    runs-on: ubuntu-latest
+    name: Check Task
+    steps:
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v4
+        with:
+          python-version: 3.11
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Install requirements
+        run: |
+          pip install -r requirements.txt
+      - name: Run Check
+        run: |
+          python3 main.py
+      - name: Commit
+        run: |
+          git config user.name  "コミットくん"
+          git add .
+          git commit -m "update"
+          git push
