@@ -11,6 +11,7 @@ on:
 permissions:
   contents: write
 
+
 jobs:
   build:
     env:
@@ -35,7 +36,7 @@ jobs:
           python3 main.py
       - name: Commit
         run: |
-          git config user.name  "GithubActionsÇ≠ÇÒ"
+          git config user.name  "GithubActions„Åè„Çì"
           git config user.email "github-actionsKun[bot]@users.noreply.github.com"
           git add .
           git commit -m "update"
