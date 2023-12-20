@@ -42,7 +42,4 @@ for a in commentelems:
 if LASTID_NEW != None and type(LASTID_NEW) == int:
     with open("lastid.txt", "w") as f:
         f.write(str(LASTID_NEW))
-    print("Success Process")
-else:
-    print("Success Process")
-    NoNewComments()
+print("Success Process")

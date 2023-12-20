@@ -34,7 +34,6 @@ jobs:
       - name: RunCheck
         run: |
           python3 main.py
-        continue-on-error: true
       - name: Commit
         run: |
           git config user.name  "GithubActionsくん"
@@ -42,4 +41,4 @@ jobs:
           git add .
           git commit -m "update"
           git push
-        if: steps.RunCheck.outcome == 'success'
+        continue-on-error: true
