@@ -8,6 +8,7 @@ LINE_TOKEN = os.environ.get("LA_LINETOKEN")
 CNAME = os.environ.get("LA_CNAME")
 PAGEURL = os.environ.get("LA_PAGEURL")
 UPPERCOMMENT = os.environ.get("LA_UPPERCOMMENT")
+GROUP_ID = os.environ.get("GROUP_ID")
 
 with open("lastid.txt","r") as f:
     LASTID = int(f.read())
@@ -34,7 +35,7 @@ for a in commentelems:
     sendtext += Commenttext
     if linebot == None:
         linebot = LineBotApi(LINE_TOKEN)
-    linebot.broadcast(TextSendMessage(text = sendtext))
+    line_bot_api.push_message(GROUP_ID, TextSendMessage(text = sendtext))
     if LASTID_NEW == None or Id > LASTID_NEW:
         LASTID_NEW = Id
 
