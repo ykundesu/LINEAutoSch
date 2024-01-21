@@ -35,7 +35,7 @@ for a in commentelems:
     sendtext += Commenttext
     if linebot == None:
         linebot = LineBotApi(LINE_TOKEN)
-    line_bot_api.push_message(GROUP_ID, TextSendMessage(text = sendtext))
+    linebot.push_message(GROUP_ID, TextSendMessage(text = sendtext))
     if LASTID_NEW == None or Id > LASTID_NEW:
         LASTID_NEW = Id
 
