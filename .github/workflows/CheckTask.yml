@@ -2,6 +2,7 @@ name: LINEAutoSchCheckTask
 
 on:
   schedule:
+    - cron: '*/10 21 *  *  *'
     - cron: '*/10 22 *  *  *'
     - cron: '0-30/10 23 *  *  *'
     - cron: '0-30/10 2 *  *  *'
@@ -19,6 +20,7 @@ jobs:
       LA_CNAME: ${{ secrets.CNAME }}
       LA_PAGEURL: ${{ secrets.PAGEURL }}
       LA_UPPERCOMMENT: ${{ secrets.UPPERCOMMENT }}
+      GROUP_ID: ${{ secrets.GROUP_ID }}
     runs-on: ubuntu-latest
     name: Check Task
     steps:
